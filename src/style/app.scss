@@ -1,0 +1,149 @@
+@charset "utf-8";  
+
+$background-color0: #f4f5f6;
+$header-height: 3rem;
+
+.nav {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  height: $header-height;
+  background: $background-color0;
+  border-bottom: .1rem solid #d1d1d1;
+
+  &_brand {
+    display: flex;
+    align-items: center;
+    font-size: calc(#{$header-height} * 0.6);
+  }
+
+  &_items {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: calc(#{$header-height} * 0.4);
+    flex-grow: 1;
+  }
+
+  &_item {
+    margin-left: calc(#{$header-height} * 0.6);
+    text-decoration: none;
+    user-select: none;
+  }
+}
+
+.container {
+  display: inherit;
+  width: 80%;
+  max-width: 100rem;
+  margin: 0 auto;
+}
+
+.main {
+    box-sizing: border-box;
+}
+
+.content {
+  padding-top: $header-height;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 0;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 0;
+}
+
+// .button {
+//   display: inline-block;
+//   align-items: center;
+//   justify-content: center;
+
+//   cursor: pointer;
+//   user-select: none;
+
+//   border-radius: 0.3rem;
+//   border: none;
+//   outline: none;
+//   font-size: 2rem;
+//   font-weight: 500;
+//   height: 4rem;
+//   letter-spacing: .1rem;
+//   line-height: 4rem;
+//   padding: 0 3.0rem;
+
+//   background-color: #3498DB;
+//   color: #fff;
+
+//   &_purple {
+//     background-color: #9b4dca;
+//     color: #fff;
+//   }
+
+//   &_success {
+//     background: #1BBC9B;
+//     color: #fff; 
+//   }
+
+//   &_warning {
+//     background: #F1C000;
+//     color: #fff;
+//   }
+// }
+
+
+
+.infobox {
+    color: #467fad;
+    background: #cde8f5;
+    border: 1px solid #80bcde;
+    border-radius: 2px;
+}
+
+.img100 {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.img50 {
+  max-width: 100%;
+  width: 50%;
+  height: auto;
+  display: block;
+}
+
+.border {
+    outline: 1px solid #9b4dca;
+    outline-offset: 0.5px;
+}
+
+div, span {
+    // outline: 1px solid #9b4dca;
+    // outline-offset: 0.5px;
+}
+
+.footer {
+  margin-top: 0.4rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  border-top: 1px solid rgba(128, 128, 128, 0.3);
+  color: rgba(128, 128, 128, 0.3);
+}
+
+@media screen and (max-width: 630px) {
+    .container {
+        width: 95%;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+}
