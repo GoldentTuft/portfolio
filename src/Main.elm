@@ -70,7 +70,7 @@ view model =
             ]
         , MS.column [ MS.class "content", style "flex-grow" "1" ]
             [ MS.column [ MS.class "container", style "flex-grow" "1" ]
-                [ linCal, typingClub, stimer, draggableList, cMen, rvs ]
+                [ linCal, typingClub, stimer, draggableList, cMen, rvs, tsScript ]
             , footer
             ]
         ]
@@ -119,6 +119,7 @@ linCal =
             [ p [] [ text "自前で式を解釈する電卓です。" ]
             , p [] [ text "そのため日付のようなものでも計算できます。" ]
             , p [] [ text "演算子の優先順位が正しく判断されます。" ]
+            , p [] [ text "2012年頃作成したものです。" ]
             , p [] [ text "C#で作成しました。" ]
             ]
         , MS.row [ style "align-self" "flex-end" ]
@@ -208,6 +209,19 @@ rvs =
             ]
         , MS.row [ style "align-self" "flex-end" ]
             [ a (linkAttr (pubAsset ++ "Rvs.zip")) [ text "download" ]
+            ]
+        ]
+
+
+tsScript : Html Msg
+tsScript =
+    MS.column []
+        [ h2 [] [ text "Tampermonkey Script" ]
+        , explanation []
+            [ p [] [ text "JavaScriptでブラウザを拡張するものです。" ]
+            ]
+        , MS.row [ style "align-self" "flex-end" ]
+            [ a (linkAttr "https://greasyfork.org/ja/users/170321-meguru") [ text "site" ]
             ]
         ]
 
