@@ -64,13 +64,14 @@ view model =
             [ div [ MS.class "container" ]
                 [ span [ MS.class "nav_brand" ] [ text "Portfolio" ]
                 , span [ MS.class "nav_items" ]
-                    [ a ([ MS.class "nav_item" ] ++ (linkAttr <| gitHubUrl)) [ text "GitHub" ]
+                    [ a ([ MS.class "nav_item" ] ++ (linkAttr <| "https://qiita.com/GoldentTuft")) [ text "Qiita" ]
+                    , a ([ MS.class "nav_item" ] ++ (linkAttr <| gitHubUrl)) [ text "GitHub" ]
                     ]
                 ]
             ]
         , MS.column [ MS.class "content", style "flex-grow" "1" ]
             [ MS.column [ MS.class "container", style "flex-grow" "1" ]
-                [ linCal, typingClub, stimer, draggableList, cMen, rvs, tsScript ]
+                [ linCal, typingClub, stimer, draggableList, cMen, tsScript, layoutStudy1, layoutStudy2, railsBbsStudy, rvs ]
             , footer
             ]
         ]
@@ -194,6 +195,60 @@ cMen =
         , MS.row [ style "align-self" "flex-end" ]
             [ a (linkAttr "https://play.google.com/store/apps/details?id=jp.ni.example.cmen") [ text "site" ]
             , a (linkAttr (gitHubUrl ++ "/CMen")) [ text "GitHub" ]
+            ]
+        ]
+
+
+layoutStudy1 : Html Msg
+layoutStudy1 =
+    MS.column []
+        [ h2 [] [ text "layout-study1" ]
+        , img [ MS.class "img100", src <| imageAsset ++ "layout-study1.png" ] []
+        , explanation []
+            [ p [] [ text "elm-uiというelmのライブラリを使用してみました。" ]
+            , p [] [ text "勉強としてドロップダウンメニューなどを自前で実装してみました。" ]
+            , p [] [ text "フォーカスを利用したドロップダウンメニューも実装しました。" ]
+            ]
+        , MS.row [ style "align-self" "flex-end" ]
+            [ a (linkAttr "https://qiita.com/GoldentTuft/items/8666ebfbd999045bd703") [ text "Qiita" ]
+            , a (linkAttr "https://goldenttuft.github.io/layout-study1/") [ text "site" ]
+            , a (linkAttr (gitHubUrl ++ "/layout-study1")) [ text "GitHub" ]
+            ]
+        ]
+
+
+layoutStudy2 : Html Msg
+layoutStudy2 =
+    MS.column []
+        [ h2 [] [ text "layout-study2" ]
+        , img [ MS.class "img100", src <| imageAsset ++ "layout-study2.png" ] []
+        , explanation []
+            [ p [] [ text "elm-neat-layoutというelmのライブラリを使用してみました。" ]
+            , p [] [ text "勉強として、今回はcssでドロップダウンメニューを実装しました。" ]
+            , p [] [ text "レスポンシブルも前回より意識しました。" ]
+            ]
+        , MS.row [ style "align-self" "flex-end" ]
+            [ a (linkAttr "https://qiita.com/GoldentTuft/items/f838591bc553eb5ac13e") [ text "Qiita" ]
+            , a (linkAttr "https://goldenttuft.github.io/layout-study2/") [ text "site" ]
+            , a (linkAttr (gitHubUrl ++ "/layout-study2")) [ text "GitHub" ]
+            ]
+        ]
+
+
+railsBbsStudy : Html Msg
+railsBbsStudy =
+    MS.column []
+        [ h2 [] [ text "Rails Bbs" ]
+
+        -- , img [ MS.class "img100", src <| imageAsset ++ "layout-study2.png" ] []
+        , explanation []
+            [ p [] [ text "開発途中で恥ずかしいのですが、Railsチュートリアルを終え掲示板機能をつけようとしています。" ]
+            , p [] [ text "ログインユーザーであればスレッドのフォロー機能、スレッドの作成が行えます。" ]
+            , p [] [ text "匿名ユーザーであっても書き込みと削除ができます。" ]
+            ]
+        , MS.row [ style "align-self" "flex-end" ]
+            [ a (linkAttr "https://gentle-plains-53830.herokuapp.com/about") [ text "site" ]
+            , a (linkAttr (gitHubUrl ++ "/bbs_study")) [ text "GitHub" ]
             ]
         ]
 
