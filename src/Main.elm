@@ -19,7 +19,7 @@ type alias Model =
 
 init : () -> ( Model, Cmd Msg )
 init _ =
-    ( { value = "hello" }
+    ( { value = "hoge" }
     , Cmd.none
     )
 
@@ -242,9 +242,10 @@ railsBbsStudy =
 
         -- , img [ MS.class "img100", src <| imageAsset ++ "layout-study2.png" ] []
         , explanation []
-            [ p [] [ text "開発途中で恥ずかしいのですが、Railsチュートリアルを終え掲示板機能をつけようとしています。" ]
+            [ p [] [ text "Railsで作成した掲示板です。" ]
             , p [] [ text "ログインユーザーであればスレッドのフォロー機能、スレッドの作成が行えます。" ]
             , p [] [ text "匿名ユーザーであっても書き込みと削除ができます。" ]
+            , p [] [ text "補足: Herokuの無料プランを使用しているので、30分アクセスがないとスリープ状態になり、起動するのに時間がかかります。" ]
             ]
         , MS.row [ style "align-self" "flex-end" ]
             [ a (linkAttr "https://gentle-plains-53830.herokuapp.com/about") [ text "site" ]
