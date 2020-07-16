@@ -5,7 +5,6 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import MyStyle as MS
-import Task
 
 
 
@@ -40,7 +39,7 @@ update msg model =
 
 
 subscriptions : Model -> Sub Msg
-subscriptions model =
+subscriptions _ =
     Sub.none
 
 
@@ -77,22 +76,27 @@ view model =
         ]
 
 
+gitHubUrl : String
 gitHubUrl =
     "https://github.com/GoldentTuft"
 
 
+hostUrl : String
 hostUrl =
     "https://pokosuko.work"
 
 
+appName : String
 appName =
     "/pf-748"
 
 
+imageAsset : String
 imageAsset =
     hostUrl ++ appName ++ "/img/"
 
 
+pubAsset : String
 pubAsset =
     hostUrl ++ appName ++ "/pub/"
 
@@ -108,7 +112,7 @@ linkAttr url =
 
 explanation : List (Attribute Msg) -> List (Html Msg) -> Html Msg
 explanation attrs children =
-    div ([ MS.mt MS.g08 ] ++ attrs) children
+    div (MS.mt MS.g08 :: attrs) children
 
 
 linCal : Html Msg
@@ -143,7 +147,8 @@ typingClub =
             , p [] [ text "フロント側はElmで作成しました。" ]
             ]
         , MS.row [ style "align-self" "flex-end" ]
-            [ a (linkAttr <| hostUrl ++ "/typing1/") [ text "site" ]
+            [ a (linkAttr <| hostUrl ++ "/typing1/#typeShortWord") [ text "site" ]
+            , a (linkAttr <| hostUrl ++ "/typing1/") [ text "site" ]
             , a (linkAttr (gitHubUrl ++ "/TypingClub")) [ text "GitHub" ]
             ]
         ]
@@ -293,5 +298,5 @@ main =
         { init = init
         , view = view
         , update = update
-        , subscriptions = \_ -> Sub.none
+        , subscriptions = subscriptions
         }
