@@ -47,14 +47,6 @@ subscriptions _ =
 -- view
 
 
-when flag attr =
-    if flag then
-        [ attr ]
-
-    else
-        []
-
-
 view : Model -> Html Msg
 view model =
     MS.column
@@ -63,14 +55,25 @@ view model =
             [ div [ MS.class "container" ]
                 [ span [ MS.class "nav_brand" ] [ text "Portfolio" ]
                 , span [ MS.class "nav_items" ]
-                    [ a ([ MS.class "nav_item" ] ++ (linkAttr <| "https://qiita.com/GoldentTuft")) [ text "Qiita" ]
-                    , a ([ MS.class "nav_item" ] ++ (linkAttr <| gitHubUrl)) [ text "GitHub" ]
+                    [ a (MS.class "nav_item" :: (linkAttr <| "https://qiita.com/GoldentTuft")) [ text "Qiita" ]
+                    , a (MS.class "nav_item" :: (linkAttr <| gitHubUrl)) [ text "GitHub" ]
                     ]
                 ]
             ]
         , MS.column [ MS.class "content", style "flex-grow" "1" ]
             [ MS.column [ MS.class "container", style "flex-grow" "1" ]
-                [ linCal, typingClub, stimer, draggableList, cMen, tsScript, layoutStudy1, layoutStudy2, railsBbsStudy, rvs ]
+                [ linCal
+                , typingClub
+                , stimer
+                , draggableList
+                , cMen
+                , tsScript
+                , layoutStudy1
+                , layoutStudy2
+                , railsBbsStudy
+                , monitorEco
+                , rvs
+                ]
             , footer
             ]
         ]
@@ -283,6 +286,27 @@ tsScript =
             ]
         , MS.row [ style "align-self" "flex-end" ]
             [ a (linkAttr "https://greasyfork.org/ja/users/170321-meguru") [ text "site" ]
+            ]
+        ]
+
+
+monitorEco : Html Msg
+monitorEco =
+    MS.column []
+        [ h2 [] [ text "monitor-eco" ]
+
+        -- , img [ MS.class "img100", src <| imageAsset ++ "layout-study2.png" ] []
+        , explanation []
+            [ p [] [ text "起動すると5秒後にモニターを消灯します。" ]
+            , p [] [ text "モニターを付けるには、マウスなどを動かします。" ]
+            , p [] [ text "起動している間、1分ごとにモニターを消灯します。" ]
+            , p [] [ text "起動している間、起動時間を計測しています。" ]
+            , p [] [ text "アプリと消灯ループを終了させるには、そのまま閉じます。" ]
+            , p [] [ text "Go言語で作成しました。" ]
+            ]
+        , MS.row [ style "align-self" "flex-end" ]
+            [ a (linkAttr <| hostUrl ++ "/monitor-eco/monitor-eco.zip") [ text "download" ]
+            , a (linkAttr (gitHubUrl ++ "/monitor-eco")) [ text "GitHub" ]
             ]
         ]
 

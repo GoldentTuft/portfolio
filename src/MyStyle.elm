@@ -1,4 +1,20 @@
-module MyStyle exposing (..)
+module MyStyle exposing
+    ( class
+    , column
+    , fill
+    , flexItem
+    , g04
+    , g08
+    , m
+    , mb
+    , ml
+    , mr
+    , mt
+    , p
+    , row
+    , rowCenter
+    , when
+    )
 
 import Html exposing (Attribute, Html, div)
 import Html.Attributes as Attrs
@@ -41,12 +57,12 @@ p gap =
 
 column : List (Attribute msg) -> List (Html msg) -> Html msg
 column attrs children =
-    div ([ class "column" ] ++ attrs) children
+    div (class "column" :: attrs) children
 
 
 row : List (Attribute msg) -> List (Html msg) -> Html msg
 row attrs children =
-    div ([ class "row" ] ++ attrs) children
+    div (class "row" :: attrs) children
 
 
 rowCenter : Attribute msg
@@ -77,7 +93,7 @@ g08 =
 
 flexItem : List (Attribute msg) -> List (Html msg) -> Html msg
 flexItem attrs children =
-    div ([ Attrs.style "flex-basis" "0" ] ++ attrs) children
+    div (Attrs.style "flex-basis" "0" :: attrs) children
 
 
 
@@ -88,3 +104,12 @@ flexItem attrs children =
 --     -> Html msg
 -- flexItem n attrs =
 --     n (List.concat [ [ Attrs.style "flex-basis" "0%" ], attrs ])
+
+
+when : Bool -> Attribute msg -> List (Attribute msg)
+when flag attr =
+    if flag then
+        [ attr ]
+
+    else
+        []
