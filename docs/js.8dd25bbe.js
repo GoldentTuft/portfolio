@@ -5,4 +5,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{}],"QvaY":[function(require,module,exports) {
 require("../style/app.scss"),require("../style/reset.scss");var e=require("../Main.elm"),s=e.Elm,i=s.Main.init({node:document.body.appendChild(document.createElement("div")),flags:null});
 },{"../style/app.scss":"rheL","../style/reset.scss":"rheL","../Main.elm":"asWa"}]},{},["QvaY"], null)
-//# sourceMappingURL=js.7aa99a12.js.map
+//# sourceMappingURL=js.8dd25bbe.js.map
