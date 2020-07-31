@@ -23,7 +23,7 @@ init _ =
     )
 
 
-type Lang
+type Skill
     = CSharp
     | Elm
     | Golang
@@ -31,15 +31,16 @@ type Lang
     | JavaScript
     | Rails
     | Kotlin
+    | SQL
 
 
 type SkillSelector
     = AllSkill
-    | OnlyOne Lang
+    | OnlyOne Skill
 
 
 type alias Product =
-    { skills : List Lang
+    { skills : List Skill
     , view : Html Msg
     }
 
@@ -72,9 +73,9 @@ subscriptions _ =
 -- view
 
 
-langToText : Lang -> String
-langToText lang =
-    case lang of
+langToText : Skill -> String
+langToText skill =
+    case skill of
         Elm ->
             "Elm"
 
@@ -96,8 +97,11 @@ langToText lang =
         Kotlin ->
             "Kotlin"
 
+        SQL ->
+            "SQL"
 
-skillButton : SkillSelector -> Lang -> Html Msg
+
+skillButton : SkillSelector -> Skill -> Html Msg
 skillButton sel lang =
     let
         active =
@@ -140,6 +144,7 @@ skillButtons sel =
         , skillButton sel JavaScript
         , skillButton sel Rails
         , skillButton sel Kotlin
+        , skillButton sel SQL
         ]
 
 
@@ -214,7 +219,7 @@ productsView sel =
             , railsBbs
             , monitorEco
             , cMen
-            , tsScript
+            , tmScript
             , layoutStudy1
             , layoutStudy2
             , rvs
@@ -260,7 +265,7 @@ linCal =
 
 typingClub : Product
 typingClub =
-    { skills = [ Elm ]
+    { skills = [ Elm, SQL ]
     , view =
         MS.column []
             [ h2 [] [ text "TypingClub" ]
@@ -422,8 +427,8 @@ rvs =
     }
 
 
-tsScript : Product
-tsScript =
+tmScript : Product
+tmScript =
     { skills = [ JavaScript ]
     , view =
         MS.column []
