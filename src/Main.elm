@@ -216,8 +216,8 @@ productsView sel =
             , typingClub
             , stimer
             , draggableList
-            , railsBbs
             , monitorEco
+            , railsBbs
             , cMen
             , tmScript
             , layoutStudy1
@@ -271,9 +271,11 @@ typingClub =
             [ h2 [] [ text "TypingClub" ]
             , img [ MS.class "img100", src <| imageAsset ++ "TypingClub.gif" ] []
             , explanation []
-                [ p [] [ text "簡単なタイピングゲームでは対応していないn,nn,xnの打ち分けが可能です。" ]
+                [ p [] [ text "タイピングが趣味なため作成しました。" ]
+                , p [] [ text "ユーザーは独自のお題を登録できurlが割り当てられます。" ]
+                , p [] [ text "簡単なタイピングゲームでは対応していないn,nn,xnの打ち分けが可能です。" ]
                 , p [] [ text "そのアルゴリズム部分も作りました。" ]
-                , p [] [ text "お題投稿機能、ランキング機能などあります。" ]
+                , p [] [ text "ランキング機能もあります。" ]
                 , p [] [ text "サーバー側はphpとsqliteで作成しました。" ]
                 , p [] [ text "フロント側はElmで作成しました。" ]
                 ]
@@ -457,6 +459,7 @@ monitorEco =
                 , p [] [ text "起動している間、1分ごとにモニターを消灯します。" ]
                 , p [] [ text "起動している間、起動時間を計測しています。" ]
                 , p [] [ text "アプリと消灯ループを終了させるには、そのまま閉じます。" ]
+                , p [] [ text "用途としては、お腹が痛くなってもこれを起動してトイレにいけば「何分使ってしまったんだろう。15分か。でもモニターの寿命が15分伸びたかも」といった感じです。" ]
                 , p [] [ text "Go言語で作成しました。" ]
                 ]
             , MS.row [ style "align-self" "flex-end" ]
